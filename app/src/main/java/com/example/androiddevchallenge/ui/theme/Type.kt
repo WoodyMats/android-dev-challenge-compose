@@ -25,8 +25,9 @@ import androidx.compose.ui.unit.sp
 val typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 24.sp,
+        color = teal200
     )
         /* Other default text styles to override
     button = TextStyle(
