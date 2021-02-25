@@ -20,7 +20,14 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -50,7 +57,7 @@ import com.example.androiddevchallenge.ui.theme.typography
 
 class MainActivity : AppCompatActivity() {
 
-    val listOfDogs: MutableList<Dog> = mutableListOf()
+    private val listOfDogs: MutableList<Dog> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,12 +117,14 @@ fun dogCard(dog: Dog, selectedDoggo: MutableState<Dog>) {
             Text(dog.doggoName, style = typography.body1, textAlign = TextAlign.Center)
             Text(text = "Sex: " + dog.sex, style = typography.body2)
             Text(text = "Age: " + dog.age + " old", style = typography.body2)
-            Button(shape = RoundedCornerShape(8.dp),
+            Button(
+                shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = teal200),
                 modifier = Modifier
                     .padding(4.dp)
                     .fillMaxWidth(),
-                onClick = { selectedDoggo.value = dog }) {
+                onClick = { selectedDoggo.value = dog }
+            ) {
                 Text(
                     text = "Details", textAlign = TextAlign.Center, color = Color.White,
                     modifier = Modifier
